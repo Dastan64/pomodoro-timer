@@ -1,8 +1,13 @@
 :root {
     --primary: #1E2140;
-    --white: #D7E0FF;
+    --white: #fff;
+    --softWhite: #D7E0FF;
     --timerGradient: linear-gradient(315deg, #2E325A 0%, #0E112A 100%);
-    --timerBg: #161932;
+    --dark: #161932;
+    --smokeGray: #EFF1FA;
+    --tomato: #F87070;
+    --grey: #E3E1E1;
+    --overlay: rgba(10, 12, 28, 0.5);
 }
 
 * {

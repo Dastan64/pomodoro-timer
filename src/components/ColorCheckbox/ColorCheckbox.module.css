@@ -1,0 +1,24 @@
+.input {
+    position: absolute;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: 0;
+}
+
+.input:focus-visible + .inputBox {
+    border: 2px solid #525252;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.inputBoxActive, .inputBox:focus-visible {
+    border: 2px solid #525252;
+}

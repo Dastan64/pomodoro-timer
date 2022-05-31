@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from './Timer.module.css';
+import { useSelector } from 'react-redux';
 
 const Timer = () => {
     const [minutes, setMinutes] = useState(20);
     const [seconds, setSeconds] = useState(0);
     const [isActive, setIsActive] = useState(false);
     const [strokeDashoffset, setStrokeDashoffset] = useState(773);
+    const color = useSelector(state => state.color.color);
 
     const handleToggle = () => {
         setIsActive(!isActive);
@@ -46,7 +48,7 @@ const Timer = () => {
                         width={270}
                     >
                         <circle
-                            stroke="#F87070"
+                            stroke={color}
                             fill="transparent"
                             strokeWidth={6}
                             strokeDasharray={773 + ', ' + 773}

@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "./App.module.css";
 import './App.module.css';
 import Timer from '../Timer/Timer';
+import Popup from '../Popup/Popup';
 
 function App() {
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const handleClick = () => {
+        setIsSettingsOpen(!isSettingsOpen);
+    }
     return (
         <div className={styled.app}>
             <h1 className={styled.appMainHeading}>pomodoro</h1>
             <Timer/>
-            <button className={styled.settingsButton}>
+            <Popup isSettingsOpen={isSettingsOpen} setIsSettingsOpen={setIsSettingsOpen}/>
+            <button className={styled.settingsButton} onClick={handleClick}>
                 <svg className={styled.settingsIcon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width={40} height={40}
                      stroke="#fff" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round"
