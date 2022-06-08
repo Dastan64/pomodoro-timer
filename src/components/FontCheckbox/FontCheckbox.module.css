@@ -22,8 +22,3 @@
 .inputBox:focus-visible {
     border: 2px solid #525252;
 }
-
-.inputBoxActive {
-    background-color: var(--dark);
-    color: var(--white);
-}

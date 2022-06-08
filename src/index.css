@@ -6,7 +6,9 @@
     --dark: #161932;
     --smokeGray: #EFF1FA;
     --tomato: #F87070;
+    --faintTomato: rgba(248, 112, 112, 0.2);
     --grey: #E3E1E1;
+    --inputDark: #1E213F;
     --overlay: rgba(10, 12, 28, 0.5);
 }
 
@@ -17,7 +19,6 @@
 }
 
 body {
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

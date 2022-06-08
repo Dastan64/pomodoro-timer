@@ -8,6 +8,7 @@ const Timer = () => {
     const [isActive, setIsActive] = useState(false);
     const [strokeDashoffset, setStrokeDashoffset] = useState(773);
     const color = useSelector(state => state.color.color);
+    const font = useSelector(state => state.font.font);
 
     const handleToggle = () => {
         setIsActive(!isActive);
@@ -41,14 +42,14 @@ const Timer = () => {
     return (
         <div className={styled.timer}>
             <div className={styled.timerBody}>
-                <div className={styled.timerContent}>
+                <div className={styled.timerContent} style={{fontFamily: font || 'Kumbh Sans, Segoe UI, sans-serif'}}>
                     <svg
                         className={styled.timerProgressBar}
                         height={270}
                         width={270}
                     >
                         <circle
-                            stroke={color}
+                            stroke={color || '#F87070'}
                             fill="transparent"
                             strokeWidth={6}
                             strokeDasharray={773 + ', ' + 773}

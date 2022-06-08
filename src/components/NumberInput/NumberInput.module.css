@@ -1,0 +1,50 @@
+.input {
+    max-width: 140px;
+    padding: 15px 0 11px 16px;
+    border: none;
+    border-radius: 10px;
+    color: var(--inputDark);
+    font-size: 0.875rem;
+    line-height: 17px;
+    outline: none;
+    font-family: "Kumbh Sans", "Segoe UI", sans-serif;
+    background-color: var(--smokeGray);
+}
+
+.input:focus, .input:focus-visible ~ .inputBtn svg path {
+    stroke-opacity: 1;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.inputBtn {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+}
+
+.inputBtn:focus-visible svg path {
+    stroke-opacity: 1;
+}
+
+.inputBtn:first-of-type {
+    top: 5px;
+    right: 15px;
+}
+.inputBtn:last-of-type {
+    bottom: 5px;
+    right: 15px;
+}

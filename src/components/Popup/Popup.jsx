@@ -9,10 +9,17 @@ import { colorsList } from '../../data/colors';
 
 //Components
 import ColorCheckbox from '../ColorCheckbox/ColorCheckbox';
+import FontCheckbox from '../FontCheckbox/FontCheckbox';
+import { fontsList } from '../../data/fonts';
+import NumberInput from '../NumberInput/NumberInput';
 
 const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
     const colors = colorsList.map(color => {
         return <ColorCheckbox color={color} key={color.id}/>
+    })
+
+    const fonts = fontsList.map(font => {
+        return <FontCheckbox font={font} key={font.id}/>
     })
 
     const handleClose = () => {
@@ -24,13 +31,16 @@ const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
                 <h3 className={styled.popupHeading}>Settings</h3>
                 <div className={styled.popupSection}>
                     <h3 className={styled.popupSectionTitle}>Time (minutes)</h3>
+                    <div className={styled.popupInputs}>
+                        <NumberInput label={"pomodoro"}/>
+                        <NumberInput label={"short break"}/>
+                        <NumberInput label={"long break"}/>
+                    </div>
                 </div>
                 <div className={styled.popupSection}>
                     <h3 className={styled.popupSectionTitle}>Font</h3>
                     <div className={styled.popupOptions}>
-                        <span className={styled.popupOption} style={{backgroundColor: '#EFF1FA'}}>Aa</span>
-                        <span className={styled.popupOption} style={{backgroundColor: '#EFF1FA'}}>Aa</span>
-                        <span className={styled.popupOption} style={{backgroundColor: '#EFF1FA'}}>Aa</span>
+                        {fonts}
                     </div>
                 </div>
                 <div className={styled.popupSection}>

@@ -1,15 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    time: 'June 12, 2022 20:00:00',
+    pomodoroMinutes: 25,
+    shortBreakMinutes: 5,
+    longBreakMinutes: 15,
 }
 
 const timerSlice = createSlice({
     name: 'timer',
     initialState,
     reducers: {
-        setTimer(state, action) {
-            state.time = action.payload;
+        setPomodoro(state, action) {
+            state.pomodoroMinutes = action.payload;
+        },
+        setShortBreak(state, action) {
+            state.shortBreakMinutes = action.payload;
+        },
+        setLongBreak(state, action) {
+            state.longBreakMinutes = action.payload;
         }
     }
 })
