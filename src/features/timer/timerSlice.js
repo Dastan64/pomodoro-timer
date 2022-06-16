@@ -14,14 +14,14 @@ const timerSlice = createSlice({
             state.pomodoroMinutes = action.payload;
         },
         setShortBreak(state, action) {
-            state.shortBreakMinutes = action.payload;
+            state.shortBreakMinutes = action.payload
         },
         setLongBreak(state, action) {
-            state.longBreakMinutes = action.payload;
-        }
+            state.longBreakMinutes = action.payload
+        },
     }
 })
 
-export const {setTimer} = timerSlice.actions;
+export const {setPomodoro, setShortBreak, setLongBreak} = timerSlice.actions;
 
 export default timerSlice.reducer;
