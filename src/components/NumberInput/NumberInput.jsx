@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setLongBreak, setPomodoro, setShortBreak } from '../../features/timer/timerSlice';
 
 const NumberInput = ({item}) => {
-    const [value, setValue] = useState();
+    const [value, setValue] = useState(5);
     const {label, type} = item;
     const dispatch = useDispatch();
 

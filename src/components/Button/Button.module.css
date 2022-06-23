@@ -1,0 +1,7 @@
+.button {
+    cursor: pointer;
+    padding: 16px;
+    border: none;
+    border-radius: 26px;
+    -webkit-tap-highlight-color: transparent;
+}

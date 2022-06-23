@@ -15,7 +15,6 @@ import NumberInput from '../NumberInput/NumberInput';
 import { minutesTypes } from '../../data/minuteTypes';
 
 const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
-
     const colors = colorsList.map(color => {
         return <ColorCheckbox color={color} key={color.id}/>
     })
@@ -25,7 +24,7 @@ const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
     })
 
     const handleClose = () => {
-        setIsSettingsOpen(!isSettingsOpen)
+        setIsSettingsOpen(!isSettingsOpen);
     }
     return (
         <div className={`${isSettingsOpen ? '' : styled.popupHidden} ${styled.popup}`}>
@@ -34,7 +33,7 @@ const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
                 <div className={styled.popupSection}>
                     <h3 className={styled.popupSectionTitle}>Time (minutes)</h3>
                     <div className={styled.popupInputs}>
-                        {minutesTypes.map((item, index) => <NumberInput item={item} key={index}/>)}
+                        {minutesTypes.map((item, index) => <NumberInput item={item} callback={handleClose} key={index}/>)}
                     </div>
                 </div>
                 <div className={styled.popupSection}>
