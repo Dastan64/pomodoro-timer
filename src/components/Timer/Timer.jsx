@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styled from './Timer.module.css';
 import { useSelector } from 'react-redux';
+
+import styled from './Timer.module.css';
 import ButtonsList from '../ButtonsList/ButtonsList';
 
 const Timer = () => {
@@ -11,9 +12,7 @@ const Timer = () => {
     const color = useSelector(state => state.color.color);
     const font = useSelector(state => state.font.font);
 
-    const handleToggle = () => {
-        setIsActive(!isActive);
-    }
+    const handleToggle = () => setIsActive(!isActive);
 
     useEffect(() => {
         let interval = null;

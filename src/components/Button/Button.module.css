@@ -1,5 +1,5 @@
 .button {
-    cursor: pointer;
+    cursor: url('../../assets/images/pointer.svg'), pointer;
     padding: 16px;
     border: none;
     border-radius: 26px;
