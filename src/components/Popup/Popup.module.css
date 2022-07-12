@@ -17,14 +17,35 @@
     display: none;
 }
 
+.popupContentAnimated {
+    animation: shake 0.5s ease 0s 1 normal;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .popupContent {
     max-width: 500px;
+    padding-bottom: 20px;
     position: relative;
     width: 90vw;
     border-radius: 16px;
     color: var(--dark);
     background-color: #fff;
     font-family: 'Kumbh Sans', sans-serif;
+}
+
+.popupContent p {
+    padding: 24px 24px 28px 24px;
+}
+
+.popupContent > img {
+    display: block;
+    margin: 0 auto;
 }
 
 .popupSection {

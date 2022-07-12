@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styled from './Timer.module.css';
+import sandWatch from "../../assets/images/sand-watch.svg";
 import ButtonsList from '../ButtonsList/ButtonsList';
+import Popup from '../Popup/Popup';
 
-const Timer = () => {
+const Timer = ({isPopupOpen, setIsPopupOpen}) => {
     const currentModeMinutes = useSelector(state => state.timer[state.timer.current]);
     const color = useSelector(state => state.color.color);
     const font = useSelector(state => state.font.font);
@@ -32,6 +34,7 @@ const Timer = () => {
                 if (seconds === 0) {
                     if (minutes === 0) {
                         clearInterval(interval);
+                        setIsPopupOpen(!isPopupOpen);
                     } else {
                         setMinutes(minute => minute - 1);
                         setStrokeDashoffset(prev => prev - strokeDashoffsetToSubtract);
@@ -43,9 +46,11 @@ const Timer = () => {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [isActive, minutes, seconds, strokeDashoffsetToSubtract])
+    }, [isActive, minutes, seconds, strokeDashoffsetToSubtract, setIsPopupOpen, isPopupOpen])
 
-    const handleToggle = () => setIsActive(!isActive);
+    const handleToggle = () => {
+        setIsActive(!isActive);
+    };
 
     return (
         <>
@@ -92,6 +97,10 @@ const Timer = () => {
                     </div>
                 </div>
             </div>
+            <Popup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} title={"Time is up!"} animated={true}>
+                <p>It looks like your time is up!</p>
+                <img src={sandWatch} alt="" width={80} height={80} draggable={false}/>
+            </Popup>
         </>
     );
 };
