@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styled from './Timer.module.css';
-import sandWatch from "../../assets/images/sand-watch.svg";
+import sandWatch from '../../assets/images/sand-watch.svg';
+
+//Components
 import ButtonsList from '../ButtonsList/ButtonsList';
 import Popup from '../Popup/Popup';
 
-const Timer = ({isPopupOpen, setIsPopupOpen}) => {
+const Timer = ({ isPopupOpen, setIsPopupOpen }) => {
     const currentModeMinutes = useSelector(state => state.timer[state.timer.current]);
     const color = useSelector(state => state.color.color);
     const font = useSelector(state => state.font.font);
@@ -18,6 +20,13 @@ const Timer = ({isPopupOpen, setIsPopupOpen}) => {
 
     const overallSeconds = currentModeMinutes * 60;
     const strokeDashoffsetToSubtract = (773 / overallSeconds).toFixed(3);
+
+    const reset = () => {
+        setSeconds(0);
+        setMinutes(currentModeMinutes);
+        setStrokeDashoffset(773);
+        setIsActive(false);
+    }
 
     useEffect(() => {
         setMinutes(currentModeMinutes);
@@ -35,6 +44,7 @@ const Timer = ({isPopupOpen, setIsPopupOpen}) => {
                     if (minutes === 0) {
                         clearInterval(interval);
                         setIsPopupOpen(!isPopupOpen);
+                        reset();
                     } else {
                         setMinutes(minute => minute - 1);
                         setStrokeDashoffset(prev => prev - strokeDashoffsetToSubtract);
@@ -46,7 +56,7 @@ const Timer = ({isPopupOpen, setIsPopupOpen}) => {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [isActive, minutes, seconds, strokeDashoffsetToSubtract, setIsPopupOpen, isPopupOpen])
+    }, [isActive, minutes, seconds, strokeDashoffsetToSubtract])
 
     const handleToggle = () => {
         setIsActive(!isActive);
@@ -97,7 +107,7 @@ const Timer = ({isPopupOpen, setIsPopupOpen}) => {
                     </div>
                 </div>
             </div>
-            <Popup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} title={"Time is up!"} animated={true}>
+            <Popup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} title={'Time is up!'} animated={true}>
                 <p>It looks like your time is up!</p>
                 <img src={sandWatch} alt="" width={80} height={80} draggable={false}/>
             </Popup>
