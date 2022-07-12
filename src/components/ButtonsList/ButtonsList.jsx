@@ -3,15 +3,15 @@ import styled from './ButtonsList.module.css';
 import Button from '../Button/Button';
 import { buttons } from '../../data/buttons';
 
-const ButtonsList = ({ font, color }) => {
+const ButtonsList = ({ font, color, setSeconds, setStrokeDashoffset }) => {
     const [activeButton, setActiveButton] = useState(1);
-    const toggleActive = (id) => setActiveButton(id)
 
     return (
         <div className={styled.buttonsListContainer}>
             <div className={styled.buttonsList}>
-                {buttons.map(button => <Button font={font} color={color} title={button.title} active={activeButton}
-                                               onClick={toggleActive} key={button.id} id={button.id}/>)}
+                {buttons.map(button => <Button font={font} color={color} button={button} active={activeButton}
+                                               setActiveButton={setActiveButton} setSeconds={setSeconds} key={button.id}
+                                               id={button.id} setStrokeDashoffset={setStrokeDashoffset}/>)}
             </div>
         </div>
     );

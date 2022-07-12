@@ -6,9 +6,8 @@ import Popup from '../Popup/Popup';
 
 function App() {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const handleClick = () => {
-        setIsSettingsOpen(!isSettingsOpen);
-    }
+    const handleClick = () => setIsSettingsOpen(!isSettingsOpen);
+
     return (
         <div className={styled.app}>
             <h1 className={styled.appMainHeading}>pomodoro</h1>

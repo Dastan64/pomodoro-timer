@@ -5,14 +5,21 @@ import styled from './Timer.module.css';
 import ButtonsList from '../ButtonsList/ButtonsList';
 
 const Timer = () => {
-    const [minutes, setMinutes] = useState(20);
-    const [seconds, setSeconds] = useState(0);
-    const [isActive, setIsActive] = useState(false);
-    const [strokeDashoffset, setStrokeDashoffset] = useState(773);
+    const currentModeMinutes = useSelector(state => state.timer[state.timer.current]);
     const color = useSelector(state => state.color.color);
     const font = useSelector(state => state.font.font);
 
-    const handleToggle = () => setIsActive(!isActive);
+    const [minutes, setMinutes] = useState(currentModeMinutes);
+    const [seconds, setSeconds] = useState(0);
+    const [isActive, setIsActive] = useState(false);
+    const [strokeDashoffset, setStrokeDashoffset] = useState(773);
+
+    const overallSeconds = currentModeMinutes * 60;
+    const strokeDashoffsetToSubtract = (773 / overallSeconds).toFixed(3);
+
+    useEffect(() => {
+        setMinutes(currentModeMinutes);
+    }, [currentModeMinutes])
 
     useEffect(() => {
         let interval = null;
@@ -20,14 +27,14 @@ const Timer = () => {
             interval = setInterval(() => {
                 if (seconds > 0) {
                     setSeconds(second => second - 1);
-                    setStrokeDashoffset(prev => prev - 0.6442);
+                    setStrokeDashoffset(prev => prev - strokeDashoffsetToSubtract);
                 }
                 if (seconds === 0) {
                     if (minutes === 0) {
                         clearInterval(interval);
                     } else {
                         setMinutes(minute => minute - 1);
-                        setStrokeDashoffset(prev => prev - 0.6442);
+                        setStrokeDashoffset(prev => prev - strokeDashoffsetToSubtract);
                         setSeconds(59);
                     }
                 }
@@ -35,13 +42,14 @@ const Timer = () => {
         } else if (!isActive && seconds !== 0) {
             clearInterval(interval);
         }
-
         return () => clearInterval(interval);
-    }, [isActive, minutes, seconds])
+    }, [isActive, minutes, seconds, strokeDashoffsetToSubtract])
+
+    const handleToggle = () => setIsActive(!isActive);
 
     return (
         <>
-            <ButtonsList font={font} color={color}/>
+            <ButtonsList font={font} color={color} setSeconds={setSeconds} setStrokeDashoffset={setStrokeDashoffset}/>
             <div className={styled.timer}>
                 <div className={styled.timerBody}>
                     <div className={styled.timerContent}

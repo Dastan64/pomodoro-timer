@@ -7,14 +7,14 @@ import closeIcon from '../../assets/images/close-icon.svg';
 //Data
 import { colorsList } from '../../data/colors';
 import { fontsList } from '../../data/fonts';
+import { minutesTypes } from '../../data/minuteTypes';
 
 //Components
 import ColorCheckbox from '../ColorCheckbox/ColorCheckbox';
 import FontCheckbox from '../FontCheckbox/FontCheckbox';
 import NumberInput from '../NumberInput/NumberInput';
-import { minutesTypes } from '../../data/minuteTypes';
 
-const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
+const Popup = ({ isSettingsOpen, setIsSettingsOpen }) => {
     const colors = colorsList.map(color => {
         return <ColorCheckbox color={color} key={color.id}/>
     })
@@ -23,9 +23,8 @@ const Popup = ({isSettingsOpen, setIsSettingsOpen}) => {
         return <FontCheckbox font={font} key={font.id}/>
     })
 
-    const handleClose = () => {
-        setIsSettingsOpen(!isSettingsOpen);
-    }
+    const handleClose = () => setIsSettingsOpen(!isSettingsOpen);
+
     return (
         <div className={`${isSettingsOpen ? '' : styled.popupHidden} ${styled.popup}`}>
             <div className={styled.popupContent}>

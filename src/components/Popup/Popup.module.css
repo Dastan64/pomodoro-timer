@@ -50,7 +50,7 @@
 }
 
 .popupBtn {
-    cursor: url('../../assets/images/pointer.svg'), pointer;
+    cursor: pointer;
     display: block;
     margin: 0 auto -29px;
     padding: 17px 47px;
@@ -64,7 +64,7 @@
 }
 
 .popupCloseBtn {
-    cursor: url('../../assets/images/pointer.svg'), pointer;
+    cursor: pointer;
     position: absolute;
     right: 30px;
     top: 30px;

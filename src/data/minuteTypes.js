@@ -4,12 +4,12 @@ export const minutesTypes = [
         type: 'pomodoro',
     },
     {
-        type: 'long',
+        type: 'longBreak',
         label: 'long break',
 
     },
     {
-        type: 'short',
+        type: 'shortBreak',
         label: 'short break',
     }
 ];

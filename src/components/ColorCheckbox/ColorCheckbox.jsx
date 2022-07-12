@@ -6,13 +6,12 @@ import tick from '../../assets/images/tick.svg';
 import styled from './ColorCheckbox.module.css';
 import { setColor } from '../../features/color/colorSlice';
 
-const ColorCheckbox = ({color}) => {
+const ColorCheckbox = ({ color }) => {
     const dispatch = useDispatch();
     const selectedColor = useSelector(state => state.color.color);
 
-    const changeSelectedColor = (color) => {
-        dispatch(setColor(color))
-    }
+    const changeSelectedColor = (color) => dispatch(setColor(color))
+
     return (
         <div>
             <label>
@@ -20,13 +19,11 @@ const ColorCheckbox = ({color}) => {
                     type="checkbox"
                     name="color"
                     className={styled.input}
-                    onChange={() => {
-                        changeSelectedColor(color.color);
-                    }}
+                    onChange={() => changeSelectedColor(color.color)}
                 />
                 <span
                     className={styled.inputBox}
-                    style={{backgroundColor: `${color.color}`}}>
+                    style={{ backgroundColor: `${color.color}` }}>
                     {color.color === selectedColor ? <img src={tick} alt=""/> : ''}
                 </span>
             </label>

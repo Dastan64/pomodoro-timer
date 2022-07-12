@@ -7,7 +7,7 @@
 }
 
 .settingsButton {
-    cursor: url('../../assets/images/pointer.svg'), pointer;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
