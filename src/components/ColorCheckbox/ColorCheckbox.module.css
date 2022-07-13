@@ -23,9 +23,6 @@
 
 .inputBox:hover {
     cursor: pointer;
-}
-
-.inputBox:focus-visible {
     border: 2px solid #525252;
 }
 
