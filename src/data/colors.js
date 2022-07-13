@@ -1,12 +1,15 @@
 export const colorsList = [
     {
         id: 1,
-        color: '#F87070',
+        value: '#F87070',
+        type: 'color',
     }, {
         id: 2,
-        color: '#70F3F8',
+        value: '#70F3F8',
+        type: 'color',
     }, {
         id: 3,
-        color: '#D881F8',
+        value: '#D881F8',
+        type: 'color',
     },
 ]

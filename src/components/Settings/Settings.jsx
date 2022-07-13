@@ -7,18 +7,13 @@ import { fontsList } from '../../data/fonts';
 import { minutesTypes } from '../../data/minuteTypes';
 
 //Components
-import ColorCheckbox from '../ColorCheckbox/ColorCheckbox';
-import FontCheckbox from '../FontCheckbox/FontCheckbox';
 import NumberInput from '../NumberInput/NumberInput';
+import OptionCheckbox from '../OptionCheckbox/OptionCheckbox';
 
 const Settings = () => {
-    const colors = colorsList.map(color => {
-        return <ColorCheckbox color={color} key={color.id}/>
-    })
 
-    const fonts = fontsList.map(font => {
-        return <FontCheckbox font={font} key={font.id}/>
-    })
+    const colors = colorsList.map(color => <OptionCheckbox item={color} key={color.id}/>)
+    const fonts = fontsList.map(font => <OptionCheckbox item={font} key={font.id}/>)
 
     return (
         <>

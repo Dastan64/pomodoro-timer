@@ -1,12 +1,15 @@
 export const fontsList = [
     {
         id: 1,
-        font: '"Kumbh Sans", "Segoe UI", sans-serif',
+        value: '"Kumbh Sans", "Segoe UI", sans-serif',
+        type: 'font',
     }, {
         id: 2,
-        font: '"Roboto Slab", "Segoe UI", sans-serif',
+        value: '"Roboto Slab", "Segoe UI", sans-serif',
+        type: 'font',
     }, {
         id: 3,
-        font: '"Space Mono", "Segoe UI", sans-serif',
+        value: '"Space Mono", "Segoe UI", sans-serif',
+        type: 'font',
     },
 ]
