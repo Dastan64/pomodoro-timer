@@ -64,7 +64,7 @@ const Timer = ({ isPopupOpen, setIsPopupOpen }) => {
 
     return (
         <>
-            <ButtonsList font={font} color={color} setSeconds={setSeconds} setStrokeDashoffset={setStrokeDashoffset}/>
+            <ButtonsList font={font} color={color} reset={reset}/>
             <div className={styled.timer}>
                 <div className={styled.timerBody}>
                     <div className={styled.timerContent}

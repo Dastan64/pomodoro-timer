@@ -4,7 +4,6 @@ import styled from './Popup.module.css';
 //Icons
 import closeIcon from '../../assets/images/close-icon.svg';
 
-
 const Popup = ({ isOpen, setIsOpen, title, children, animated }) => {
     const handleClose = () => setIsOpen(!isOpen);
 

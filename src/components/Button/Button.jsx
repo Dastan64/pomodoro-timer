@@ -4,7 +4,7 @@ import styled from './Button.module.css';
 import { useDispatch } from 'react-redux';
 import { setCurrent } from '../../features/timer/timerSlice';
 
-const Button = ({ font, color, button, active, setActiveButton, id, setSeconds, setStrokeDashoffset }) => {
+const Button = ({ font, color, button, active, setActiveButton, id, reset }) => {
     const { title, type } = button;
     const dispatch = useDispatch();
 
@@ -17,8 +17,7 @@ const Button = ({ font, color, button, active, setActiveButton, id, setSeconds, 
     const handleClick = () => {
         setActiveButton(id, type);
         dispatch(setCurrent(type));
-        setSeconds(0);
-        setStrokeDashoffset(773);
+        reset();
     }
 
     return <button className={styled.button} type="button" style={style} onClick={handleClick}>{title}</button>
