@@ -84,6 +84,11 @@
     font-family: 'Kumbh Sans', sans-serif;
 }
 
+.popupBtn:hover {
+    mix-blend-mode: normal;
+    opacity: 0.2;
+}
+
 .popupCloseBtn {
     cursor: pointer;
     position: absolute;
